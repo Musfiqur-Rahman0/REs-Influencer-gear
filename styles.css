@@ -16,6 +16,7 @@
     --dark02: #3a3a3a;  /* for  title */
     --dark03: #6c6c6c; /* for  paragraph */
     --grayColor: #787885; /* for  secondary paragraph */
+    --darkBg: rgb(26, 26, 29);
 }
 
 /* You Nick style */
@@ -52,7 +53,7 @@ header {
 .heroImg {
     /* height: 300px; */
 }
-.heroTitle {
+.heroTitle  {
     font-size:  clamp(1.8rem , 4vw, 3.25rem);
     color: #3a3a3a;
     /* line-height: 4rem; */
@@ -73,7 +74,7 @@ header {
     z-index: -1;
 }
 
-.containerBtn {
+.containedBtn {
    background-color: var(--primaryColor);
     font-weight: 700; 
     color:    var(--whiteColor);
@@ -87,40 +88,140 @@ header {
     margin-top: 5rem ;
     max-width: 1128px;
     margin: 5rem auto 0 auto;
+    padding: 0px 10px;
+}
+
+.productCtn {
+    width: 95%;
+    margin: 0 auto;
+    
 }
 
 
+.products {
+    width: 100%;
+}
+.product {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.15);
+    background: var(--whiteColor);
+}
+.title {
+    text-align: center;
+}
+.ftitle, .title {
+    font-size: 2rem;
+    color:var(--dark01);
+    font-weight: 700;
+}
+.paragraph {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark03);
+}
+
+.moreBtn {
+    color: var(--primaryColor);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 5rem;
+    width: 100%;
+    background-color: var(--darkBg);
+    color: white;
+    padding: 50px 0px;
+}
+.footContent {
+    text-align: center;
+    max-width: 320px;
+}
+
+.iconCtn {
+    height: 30px;
+    border-radius: 50%;
+    background-color: #393849;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.starts > i {
+    color: #fb8200;
+    font-size: 0.8rem;
+}
 
 
+/* animation practise */
+.camera {  
+   animation: rotate 10s linear  infinite  ;
+}
+
+.camera:hover {
+   animation: none ;
+}
+
+/* camera animation with keyframe */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+    
+}
 
 /* Sheared styled */
+
+
 .navbar, #heroSection {
     max-width: 1280px;
     margin: 0 auto;
 }
 
 .navbar, .navLinks, .navIcons, .navRight,
-#heroSection , .containerBtn, .container,
-.sponsers {
+#heroSection , .containedBtn, .container,
+.sponsers, .productCtn, .moreBtn, .featuredProducts,
+.socialIcons, footer , .ratings{
     display: flex;
     align-items: center;
 }
 
-.container {
+.container , .productCtn {
     flex-direction: column;
 }
-.navLinks, .navRight, .navIcons, .containerBtn{
+footer, .socialIcons{
+    justify-content: center;
+    align-content: center;
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+}
+.navLinks, .navRight, .navIcons, .containedBtn,
+ .moreBtn , .socialIcons, .ratings{
     gap: 0.9rem;
 }
-.sponsers {
-    gap: 1.25rem;
+.sponsers  , .products{
+    gap: 1.25rem    ;
 }
 
 #heroSection {
     gap: 50px;
 }
-.container {
+.container, .featuredProducts {
     gap: 100px;
+}
+.productCtn{
+    gap: 30px;
 }
 
 
@@ -143,6 +244,15 @@ header {
 .sponsers {
     width: 100%;
 }
+.product {
+    flex: 1;
+}
+
+.subTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--dark01);
+}
 
 
 /* responsive styles */
@@ -155,15 +265,24 @@ header {
     .menuBar {
         display: block;
     }
-    #heroSection{
+    #heroSection, .featuredProducts{
         flex-direction: column-reverse;
     }
+    
     #heroSection {
         padding: 10px;
         gap: 25px;
     }
+    .featuredProducts {
+        gap: 30px;
+    }
      .heroContent {
         width: 100%;
+        text-align: center;
+    }
+    .containedBtn{
+        text-align: center;
+        margin: 0 auto;
     }
     .heroImg{
         width: 70%;
@@ -180,4 +299,25 @@ header {
     .container {
         margin: 2rem  auto 0 auto ;
     }
+    .products{
+        grid-template-columns: 1fr;
+    }
+    .fimg {
+        width: 100%;
+    }
+    .fContent {
+        text-align: center;
+    }
+}
+
+/* for medium devices  */
+@media screen and (min-width: 576px ) and (max-width: 992px) {
+        .products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .sponsers{
+            flex-wrap: wrap;
+            justify-content: center;
+        
+        }
 }
