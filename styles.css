@@ -17,6 +17,7 @@
     --dark03: #6c6c6c; /* for  paragraph */
     --grayColor: #787885; /* for  secondary paragraph */
     --darkBg: rgb(26, 26, 29);
+    --quantity: 7;
 }
 
 /* You Nick style */
@@ -165,7 +166,40 @@ footer {
 }
 
 .camera:hover {
-   animation: none ;
+   animation-play-state: paused !important ;
+}
+
+.sponsers {
+    position: relative;
+    height: 100px;
+    mask-image: linear-gradient(
+        to right, 
+        transparent,
+        #000 50% 80%,
+        transparent
+    );
+}
+ .sponser {
+    position:absolute;
+    cursor: pointer;
+    left: 100%;
+    animation: autoplay 7s   linear infinite ;
+    animation-delay: calc(( 7s / var(--quantity)) * (var(--position) - 1));
+}
+.sponsers:hover .sponser{
+    animation-play-state: paused !important;
+}
+
+
+.containedBtn:hover{
+    background-color: #fb8200;
+    transition: background-color   0.3s linear;
+}
+
+.iconCtn > i:hover  {
+    color: var(--primaryColor);
+    transform: scale(1.1)  rotate(360deg) ;
+    transition: transform 0.4s linear , color 0.4s linear;
 }
 
 /* camera animation with keyframe */
@@ -175,8 +209,14 @@ footer {
     }
     to {
         transform: rotate(360deg);
+    } 
+}
+@keyframes autoplay {
+    from {
+        left: 100%;
+    }to {
+        left: 0%;
     }
-    
 }
 
 /* Sheared styled */
@@ -293,7 +333,7 @@ footer, .socialIcons{
     .sponsers{
         flex-wrap: wrap;
         justify-content: center;
-        row-gap: 0.8rem;
+        row-gap: 1.25rem;
         column-gap: 1.25rem;
     }
     .container {
@@ -307,6 +347,10 @@ footer, .socialIcons{
     }
     .fContent {
         text-align: center;
+    } 
+    .sponser {
+        position: static;
+
     }
 }
 
@@ -318,6 +362,7 @@ footer, .socialIcons{
         .sponsers{
             flex-wrap: wrap;
             justify-content: center;
-        
+            
         }
+       
 }
