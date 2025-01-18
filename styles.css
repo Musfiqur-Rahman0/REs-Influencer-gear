@@ -47,10 +47,7 @@ header {
     display: none;
 }
 
-img {
-    object-fit: cover;
-    height: 100%;
-}
+
 
 .heroImg {
     /* height: 300px; */
@@ -86,6 +83,11 @@ img {
     cursor: pointer;
 }
 
+.container {
+    margin-top: 5rem ;
+    max-width: 1128px;
+    margin: 5rem auto 0 auto;
+}
 
 
 
@@ -93,27 +95,37 @@ img {
 
 /* Sheared styled */
 .navbar, #heroSection {
-    max-width: 1128px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
 .navbar, .navLinks, .navIcons, .navRight,
-#heroSection , .containerBtn {
+#heroSection , .containerBtn, .container,
+.sponsers {
     display: flex;
     align-items: center;
 }
 
+.container {
+    flex-direction: column;
+}
 .navLinks, .navRight, .navIcons, .containerBtn{
     gap: 0.9rem;
+}
+.sponsers {
+    gap: 1.25rem;
 }
 
 #heroSection {
     gap: 50px;
 }
+.container {
+    gap: 100px;
+}
 
 
 
-.navbar {
+.navbar, .sponsers {
     justify-content: space-between;
 }
 
@@ -127,6 +139,9 @@ img {
 
 .rounded-bg{
     border-radius: 40px;
+}
+.sponsers {
+    width: 100%;
 }
 
 
@@ -155,5 +170,14 @@ img {
     }
     .my-16{
         margin: 8px 0;
+    }
+    .sponsers{
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.8rem;
+        column-gap: 1.25rem;
+    }
+    .container {
+        margin: 2rem  auto 0 auto ;
     }
 }
