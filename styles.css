@@ -38,6 +38,19 @@ header {
     margin: 0 auto;
 }
 
+.brandName {
+    font-size: clamp(1rem,  2vw ,  2rem ) ;
+  
+}
+
+
+.menuBar {
+    font-size: 24px;
+    font-weight: bold;
+    display: none;
+}
+
+
 
 
 
@@ -54,4 +67,18 @@ header {
 
 .navbar {
     justify-content: space-between;
+}
+
+
+
+/* responsive styles */
+
+/* for modbile devices */
+@media screen and (max-width: 576px) {
+    .navRight{
+        display: none;
+    }
+    .menuBar {
+        display: block;
+    }
 }
