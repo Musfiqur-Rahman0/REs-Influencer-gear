@@ -30,7 +30,7 @@ header, footer, .products, .sponsers {
     width: 90%;
    padding: 1.25rem  ;
    position: fixed;
-   top: 5%;
+   top: 2%;
    left: 50%;
    transform: translateX(-50%);
    backdrop-filter: blur(10px);
@@ -223,11 +223,6 @@ header, footer, .products, .sponsers {
     transform: scale(0.9);
 }
 
-
-
-
-
-
 footer {
     margin-top: 5rem;
     background-color: var(--darkBg);
@@ -401,7 +396,7 @@ footer, .socialIcons , .iconCtn{
     
     #heroSection {
         gap: 25px;
-        padding-top: 5rem;
+        padding-top: 5.5rem;
     }
     .navbar {
         top: 1%;
