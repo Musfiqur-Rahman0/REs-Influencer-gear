@@ -22,7 +22,7 @@
 
 /* You Nick style */
 
-header {
+header, footer, .products, .sponsers {
     width: 100%;
 }
 
@@ -51,7 +51,6 @@ header {
 
 .menuBar {
     font-size: 24px;
-    font-weight: bold;
     display: none;
 }
 
@@ -61,9 +60,7 @@ header {
 }
 
 
-.heroImg {
-    /* height: 300px; */
-}
+
 .heroTitle  {
     font-size:  clamp(1.8rem , 4vw, 3.25rem);
     color: #3a3a3a;
@@ -97,7 +94,6 @@ header {
 
 .containedBtn {
    background-color: var(--secondaryColor);
-    font-weight: 700; 
     color: var(--whiteColor);
     padding: 10px 20px ;
     border: none;
@@ -170,10 +166,6 @@ header {
     
 }
 
-
-.products {
-    width: 100%;
-}
 .product {
     padding: 20px;
     border-radius: 5px;
@@ -186,7 +178,7 @@ header {
 .ftitle, .title {
     font-size: 2rem;
     color:var(--dark01);
-    font-weight: 700;
+
 }
 .paragraph {
     font-size: 1rem;
@@ -204,7 +196,6 @@ header {
     background-color: transparent;
     font-size: 18px;
     padding: 10px 30px;
-    font-weight: 700;
     cursor: pointer;
     z-index: 0;
     position: relative;
@@ -239,7 +230,6 @@ header {
 
 footer {
     margin-top: 5rem;
-    width: 100%;
     background-color: var(--darkBg);
     color: white;
     padding: 50px 0px;
@@ -254,9 +244,6 @@ footer {
     border-radius: 50%;
     background-color: #393849;
     width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
 .starts > i {
@@ -295,9 +282,6 @@ footer {
     animation-play-state: paused !important;
 }
 
-
-
-
 .iconCtn > i:hover  {
     color: var(--primaryColor);
      animation: changeColorWhileRotate 0.3s linear    ;
@@ -329,6 +313,9 @@ footer {
 }
 
 /* Sheared styled */
+.containedBtn, .moreBtn, .ftitle, .title, .menuBar{
+    font-weight: 700;
+}
 
 
 .navbar, #heroSection {
@@ -339,7 +326,7 @@ footer {
 .navbar, .navLinks, .navIcons, .navRight,
 #heroSection , .containedBtn, .container,
 .sponsers, .productCtn, .moreBtn, .featuredProducts,
-.socialIcons, footer , .ratings{
+.socialIcons, footer , .ratings, .iconCtn{
     display: flex;
     align-items: center;
 }
@@ -347,9 +334,8 @@ footer {
 .container , .productCtn {
     flex-direction: column;
 }
-footer, .socialIcons{
+footer, .socialIcons , .iconCtn{
     justify-content: center;
-    align-content: center;
 }
 .products{
     display: grid;
@@ -360,7 +346,7 @@ footer, .socialIcons{
     gap: 0.9rem;
 }
 .sponsers  , .products{
-    gap: 1.25rem    ;
+    gap: 1.25rem ;
 }
 
 #heroSection {
@@ -387,10 +373,6 @@ footer, .socialIcons{
     margin: 1rem  0;
 }
 
-
-.sponsers {
-    width: 100%;
-}
 .product {
     flex: 1;
 }
@@ -418,7 +400,6 @@ footer, .socialIcons{
     }
     
     #heroSection {
-        /* padding: 10px; */
         gap: 25px;
         padding-top: 5rem;
     }
@@ -428,12 +409,13 @@ footer, .socialIcons{
     .featuredProducts {
         gap: 30px;
     }
-     .heroContent {
+     .heroContent, .fimg {
         width: 100%;
+    }
+    .heroContent, .containedBtn, .fContent {
         text-align: center;
     }
     .containedBtn{
-        text-align: center;
         margin: 0 auto;
     }
     .heroImg{
@@ -445,8 +427,7 @@ footer, .socialIcons{
     .sponsers{
         flex-wrap: wrap;
         justify-content: center;
-        row-gap: 1.25rem;
-        column-gap: 1.25rem;
+       
     }
     .container {
         margin: 2rem  auto 0 auto ;
@@ -454,15 +435,8 @@ footer, .socialIcons{
     .products{
         grid-template-columns: 1fr;
     }
-    .fimg {
-        width: 100%;
-    }
-    .fContent {
-        text-align: center;
-    } 
     .sponser {
         position: static;
-
     }
 }
 
@@ -474,7 +448,5 @@ footer, .socialIcons{
         .sponsers{
             flex-wrap: wrap;
             justify-content: center;
-            
         }
-       
 }
