@@ -14,8 +14,8 @@
     --whiteColor: #fff;
     --dark01: #0a0826; /* for secondary  title */ 
     --dark02: #3a3a3a;  /* for  title */
-    --dark03: #6c6c6c; /* for  paragraph */
-    --grayColor: #787885; /* for  secondary paragraph */
+    --dark03: rgb(108, 108, 108); /* for  paragraph */
+    --grayColor: #787878; /* for  secondary paragraph */
     --darkBg: rgb(26, 26, 29);
     --quantity: 7;
 }
@@ -28,7 +28,13 @@ header {
 
 .navbar {
     width: 90%;
-   padding: 1.25rem  0;
+   padding: 1.25rem  ;
+   position: fixed;
+   top: 5%;
+   left: 50%;
+   transform: translateX(-50%);
+   backdrop-filter: blur(10px);
+   border-radius: 10px;
 }
 
 .navLinks > li {
@@ -50,6 +56,10 @@ header {
 }
 
 
+#heroSection {
+    padding: 10rem 0 2rem  0;
+}
+
 
 .heroImg {
     /* height: 300px; */
@@ -62,6 +72,16 @@ header {
 .heroPara {
     color: #3a3a3a;
     font-weight: 600;
+}
+.secondaryPara {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--grayColor);
+}
+.price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--grayColor);
 }
 
 .heroImg {
@@ -76,14 +96,66 @@ header {
 }
 
 .containedBtn {
-   background-color: var(--primaryColor);
+   background-color: var(--secondaryColor);
     font-weight: 700; 
-    color:    var(--whiteColor);
+    color: var(--whiteColor);
     padding: 10px 20px ;
     border: none;
     outline: none;
     cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 40px;
+    /* color: #fff; */
 }
+
+/* custom button */
+.containedBtn::after{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    background-color: var(--secondaryColor);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    border-radius: 40px;
+    
+}
+.containedBtn::before{
+    content: "";
+    background:linear-gradient(
+        45deg, 
+        #E02C6D, #E53A5B, #E94949, #EE5737, #F26524, #F77412, #FB8200, #e02c6d
+    ) ;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    border-radius: 20px;
+    filter: blur(10px);
+    animation: glowing 10s  linear infinite  ;
+    opacity: 0;
+}
+.containedBtn:hover::before{
+    opacity: 1;
+}
+.containedBtn:active:after {
+    background: var(--primaryColor);
+    transform: scale(0.9) ;
+    transition: all 0.3s ease-in-out;
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+
 
 .container {
     margin-top: 5rem ;
@@ -122,15 +194,48 @@ header {
     color: var(--dark03);
 }
 
+
+/* fade in background color animation with  smoth transition */
+
 .moreBtn {
     color: var(--primaryColor);
     outline: none;
     border: none;
     background-color: transparent;
     font-size: 18px;
+    padding: 10px 30px;
     font-weight: 700;
     cursor: pointer;
+    z-index: 0;
+    position: relative;
+    transition: color 0.3s linear;
 }
+.moreBtn::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--secondaryColor);
+    z-index: -1;
+    transition: width 0.5s linear;
+}
+.moreBtn:hover {
+    color: var(--whiteColor);
+    transition: color 0.3s ease-in-out;
+}
+.moreBtn:hover::after{
+    width: 100% ; 
+}
+.moreBtn:active {
+    transform: scale(0.9);
+}
+
+
+
+
+
 
 footer {
     margin-top: 5rem;
@@ -191,16 +296,20 @@ footer {
 }
 
 
-.containedBtn:hover{
-    background-color: #fb8200;
-    transition: background-color   0.3s linear;
-}
+
 
 .iconCtn > i:hover  {
     color: var(--primaryColor);
-    transform: scale(1.1)  rotate(360deg) ;
-    transition: transform 0.4s linear , color 0.4s linear;
+     animation: changeColorWhileRotate 0.3s linear    ;
 }
+
+/* icon hover animation with color change  */
+@keyframes changeColorWhileRotate {
+    0%{transform: rotate(0deg);}
+    50%{color: var(--secondaryColor);}
+    100%{transform: rotate(360deg); color: var(--primaryColor);}
+}
+
 
 /* camera animation with keyframe */
 @keyframes rotate {
@@ -278,9 +387,7 @@ footer, .socialIcons{
     margin: 1rem  0;
 }
 
-.rounded-bg{
-    border-radius: 40px;
-}
+
 .sponsers {
     width: 100%;
 }
@@ -292,6 +399,7 @@ footer, .socialIcons{
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--dark01);
+    text-transform: capitalize;
 }
 
 
@@ -310,8 +418,12 @@ footer, .socialIcons{
     }
     
     #heroSection {
-        padding: 10px;
+        /* padding: 10px; */
         gap: 25px;
+        padding-top: 5rem;
+    }
+    .navbar {
+        top: 1%;
     }
     .featuredProducts {
         gap: 30px;
