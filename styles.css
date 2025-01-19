@@ -405,7 +405,7 @@ footer, .socialIcons , .iconCtn{
     
     #heroSection {
         gap: 25px;
-        padding-top: 5.5rem;
+        padding: 5.5rem 10px 2rem 10px;
     }
     .navbar {
         top: 1%;
