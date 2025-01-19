@@ -35,13 +35,22 @@ header, footer, .products, .sponsers {
    transform: translateX(-50%);
    backdrop-filter: blur(10px);
    border-radius: 10px;
+   z-index: 999;
 }
 
 .navLinks > li {
     list-style: none;
+    color: var(--primaryColor);
 }
-
-
+.navLinks > li , .navIcons {
+    cursor: pointer;
+}
+.secondary, .navIcons{
+    color: var(--secondaryColor);
+}
+.navLinks > li:active {
+    color: var(--secondaryColor);
+}
 
 .brandName {
     font-size: clamp(1rem,  2vw ,  2rem ) ;
@@ -56,7 +65,7 @@ header, footer, .products, .sponsers {
 
 
 #heroSection {
-    padding: 10rem 0 2rem  0;
+    padding: 10rem 1.25rem 2rem  1.25rem;
 }
 
 
@@ -400,6 +409,7 @@ footer, .socialIcons , .iconCtn{
     }
     .navbar {
         top: 1%;
+        padding: 10px;
     }
     .featuredProducts {
         gap: 30px;
